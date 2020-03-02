@@ -1,4 +1,4 @@
-const Calculator = require('../calcurater');
+const Calculator = require('../src/calcurator');
 
 test('Test_plus_01', () => {
   const result = Calculator.plus(8, 4);
