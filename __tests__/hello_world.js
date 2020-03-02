@@ -1,4 +1,4 @@
-const HelloWorld = require('./hello_world');
+const HelloWorld = require('../hello_world');
 
 test('Test_HelloWorld_01', () => {
   const result = HelloWorld('hoge');
