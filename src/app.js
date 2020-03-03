@@ -30,9 +30,37 @@ app.get('/api/students', (req, res) => {
   res.status(200).json(students)
 })
 
+app.get('/api/students/:id', (req, res) => {
+  const selectedId = req.params.id;
+
+  for (let dto of students) {
+    if (dto.id == selectedId) {
+      res.type('json')
+      res.status(200).json(dto)
+      return
+    }
+  }
+  res.sendStatus(404)
+  return
+})
+
 app.get('/api/subjects', (req, res) => {
   res.type('json')
   res.status(200).json(subjects)
+})
+
+app.get('/api/subjects/:id', (req, res) => {
+  const selectedId = req.params.id;
+
+  for (let dto of subjects) {
+    if (dto.id == selectedId) {
+      res.type('json')
+      res.status(200).json(dto)
+      return
+    }
+  }
+  res.sendStatus(404)
+  return
 })
 
 module.exports = app
