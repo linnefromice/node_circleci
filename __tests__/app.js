@@ -17,7 +17,7 @@ test('Test_App_api_students_01', (done) => {
 })
 
 test('Test_App_api_students_id_01', (done) => {
-  request(app).get('/api/students/0').then((response) => {
+  request(app).get('/api/students/1').then((response) => {
     expect(response.status).toBe(404)
     done();
   })
@@ -25,7 +25,7 @@ test('Test_App_api_students_id_01', (done) => {
 
 test('Test_App_api_students_id_02', (done) => {
   request(app).get('/api/students/0').then((response) => {
-    expect(response.status).toBe(404)
+    expect(response.status).toBe(200)
     done();
   })
 })
@@ -38,8 +38,8 @@ test('Test_App_api_subjects_01', (done) => {
 })
 
 test('Test_App_api_subjects_id_01', (done) => {
-  request(app).get('/api/subjects/0').then((response) => {
-    expect(response.status).toBe(404)
+  request(app).get('/api/subjects/1').then((response) => {
+    expect(response.status).toBe(200)
     done();
   })
 })
