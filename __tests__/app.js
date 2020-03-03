@@ -12,13 +12,16 @@ test('Test_App_01', (done) => {
 test('Test_App_api_students_01', (done) => {
   request(app).get('/api/students').then((response) => {
     expect(response.status).toBe(200)
+    expect(Array.isArray(response.body)).toBe(true)
     done();
   })
 })
 
 test('Test_App_api_students_id_01', (done) => {
-  request(app).get('/api/students/0').then((response) => {
-    expect(response.status).toBe(404)
+  request(app).get('/api/students/1').then((response) => {
+    expect(response.status).toBe(200)
+    expect(response.body.id).toBe(1)
+    expect(typeof response.body.name).toBe("string")
     done();
   })
 })
@@ -33,13 +36,16 @@ test('Test_App_api_students_id_02', (done) => {
 test('Test_App_api_subjects_01', (done) => {
   request(app).get('/api/subjects').then((response) => {
     expect(response.status).toBe(200)
+    expect(Array.isArray(response.body)).toBe(true)
     done();
   })
 })
 
 test('Test_App_api_subjects_id_01', (done) => {
-  request(app).get('/api/subjects/0').then((response) => {
-    expect(response.status).toBe(404)
+  request(app).get('/api/subjects/1').then((response) => {
+    expect(response.status).toBe(200)
+    expect(response.body.id).toBe(1)
+    expect(typeof response.body.name).toBe("string")
     done();
   })
 })
